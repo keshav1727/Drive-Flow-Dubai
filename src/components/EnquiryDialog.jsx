@@ -21,7 +21,7 @@ const EnquiryDialog = ({ isOpen, onClose, carName }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     try {
       const enquiryData = {
         carName,
@@ -56,7 +56,7 @@ const EnquiryDialog = ({ isOpen, onClose, carName }) => {
       }
     } catch (error) {
       console.error('Error submitting enquiry:', error)
-      alert('Failed to submit enquiry. Please try calling us directly at +971 50 123 4567')
+      alert('Failed to submit enquiry. Please try calling us directly at +971 55 802 9149')
     }
   }
 
@@ -112,7 +112,7 @@ const EnquiryDialog = ({ isOpen, onClose, carName }) => {
                 onChange={handleInputChange}
                 required
                 className="input-field"
-                placeholder="+971 50 123 4567"
+                placeholder="+971 55 802 9149"
               />
             </div>
 
@@ -199,7 +199,7 @@ const EnquiryDialog = ({ isOpen, onClose, carName }) => {
             <div className="flex items-center justify-center space-x-6 text-sm text-gray-300">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-cyan-400" />
-                <span>+971 50 123 4567</span>
+                <span>+971 55 802 9149</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-cyan-400" />
