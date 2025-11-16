@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Car, Phone, Mail, MapPin, Instagram } from 'lucide-react'
+import { CONTACT_INFO, SOCIAL_LINKS } from '../../constants'
 
 const Footer = () => {
   return (
@@ -10,15 +11,15 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Car className="h-8 w-8 text-dubai-gold" />
-              <span className="text-2xl font-bold">DriveFlow</span>
-              <span className="text-lg text-gray-400">Dubai</span>
+              <Car className="h-8 w-8 text-cyan-400" />
+              <span className="text-2xl font-bold text-white text-glow">DriveFlow</span>
+              <span className="text-lg text-cyan-400">Dubai</span>
             </div>
             <p className="text-gray-400 mb-4">
               Premium car rental service in Dubai. Experience luxury, comfort, and reliability with our premium fleet.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.instagram.com/driveflowdubai/" className="text-gray-400 hover:text-dubai-gold transition-colors">
+              <a href={SOCIAL_LINKS.instagram} className="text-gray-400 hover:text-cyan-400 transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
@@ -69,16 +70,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4 text-dubai-gold" />
-                <span className="text-gray-400">+971 55 802 9149</span>
+                <Phone className="h-4 w-4 text-cyan-400" />
+                <span className="text-gray-400">{CONTACT_INFO.phone}</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 text-dubai-gold" />
-                <span className="text-gray-400">driveflowdubai@gmail.com</span>
+                <Mail className="h-4 w-4 text-cyan-400" />
+                <span className="text-gray-400">{CONTACT_INFO.email}</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="h-4 w-4 text-dubai-gold" />
-                <span className="text-gray-400">Downtown Dubai, UAE</span>
+                <MapPin className="h-4 w-4 text-cyan-400" />
+                <span className="text-gray-400">{CONTACT_INFO.location}</span>
               </div>
             </div>
           </div>

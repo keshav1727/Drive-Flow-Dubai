@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { X, Phone, Mail } from 'lucide-react'
+import { API_ENDPOINTS, CONTACT_INFO } from '../../constants'
 
 const EnquiryDialog = ({ isOpen, onClose, carName }) => {
   const [formData, setFormData] = useState({
@@ -29,7 +30,7 @@ const EnquiryDialog = ({ isOpen, onClose, carName }) => {
       }
 
       // Send to backend API
-      const response = await fetch('http://localhost:3001/api/enquiry', {
+      const response = await fetch(API_ENDPOINTS.enquiry, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -112,7 +113,7 @@ const EnquiryDialog = ({ isOpen, onClose, carName }) => {
                 onChange={handleInputChange}
                 required
                 className="input-field"
-                placeholder="+971 55 802 9149"
+                placeholder={CONTACT_INFO.phone}
               />
             </div>
 
@@ -199,11 +200,11 @@ const EnquiryDialog = ({ isOpen, onClose, carName }) => {
             <div className="flex items-center justify-center space-x-6 text-sm text-gray-300">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-cyan-400" />
-                <span>+971 55 802 9149</span>
+                <span>{CONTACT_INFO.phone}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-cyan-400" />
-                <span>driveflowdubai@gmail.com</span>
+                <span>{CONTACT_INFO.email}</span>
               </div>
             </div>
           </div>

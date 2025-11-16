@@ -1,33 +1,34 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Car, Menu, X, Phone, Mail } from 'lucide-react'
+import { CONTACT_INFO } from '../../constants'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
+    <header className="bg-gray-900/90 backdrop-blur-sm border-b border-cyan-500/30 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <Car className="h-8 w-8 text-dubai-blue" />
-            <span className="text-2xl font-bold text-dubai-blue">DriveFlow</span>
-            <span className="text-lg text-gray-600">Dubai</span>
+            <Car className="h-8 w-8 text-cyan-400" />
+            <span className="text-2xl font-bold text-white text-glow">DriveFlow</span>
+            <span className="text-lg text-cyan-400">Dubai</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-700 hover:text-dubai-blue transition-colors">
+            <Link to="/" className="text-gray-300 hover:text-cyan-400 transition-colors">
               Home
             </Link>
-            <a href="#services" className="text-gray-700 hover:text-dubai-blue transition-colors">
+            <a href="#services" className="text-gray-300 hover:text-cyan-400 transition-colors">
               Services
             </a>
-            <a href="#fleet" className="text-gray-700 hover:text-dubai-blue transition-colors">
+            <a href="#fleet" className="text-gray-300 hover:text-cyan-400 transition-colors">
               Our Fleet
             </a>
-            <a href="#about" className="text-gray-700 hover:text-dubai-blue transition-colors">
+            <a href="#about" className="text-gray-300 hover:text-cyan-400 transition-colors">
               About
             </a>
           </nav>
@@ -35,12 +36,12 @@ const Header = () => {
           {/* Contact Info */}
           <div className="hidden lg:flex items-center space-x-4 text-sm">
             <div className="flex items-center space-x-1">
-              <Phone className="h-4 w-4 text-dubai-blue" />
-              <span className="text-gray-600">+971 55 802 9149</span>
+              <Phone className="h-4 w-4 text-cyan-400" />
+              <span className="text-gray-300">{CONTACT_INFO.phone}</span>
             </div>
             <div className="flex items-center space-x-1">
-              <Mail className="h-4 w-4 text-dubai-blue" />
-              <span className="text-gray-600">driveflowdubai@gmail.com</span>
+              <Mail className="h-4 w-4 text-cyan-400" />
+              <span className="text-gray-300">{CONTACT_INFO.email}</span>
             </div>
           </div>
 
@@ -50,41 +51,41 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6 text-gray-700" />
+              <X className="h-6 w-6 text-gray-300" />
             ) : (
-              <Menu className="h-6 w-6 text-gray-700" />
+              <Menu className="h-6 w-6 text-gray-300" />
             )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+          <div className="md:hidden py-4 border-t border-gray-700">
             <nav className="flex flex-col space-y-4">
               <Link 
                 to="/" 
-                className="text-gray-700 hover:text-dubai-blue transition-colors"
+                className="text-gray-300 hover:text-cyan-400 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <a 
                 href="#services" 
-                className="text-gray-700 hover:text-dubai-blue transition-colors"
+                className="text-gray-300 hover:text-cyan-400 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
               </a>
               <a 
                 href="#fleet" 
-                className="text-gray-700 hover:text-dubai-blue transition-colors"
+                className="text-gray-300 hover:text-cyan-400 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Our Fleet
               </a>
               <a 
                 href="#about" 
-                className="text-gray-700 hover:text-dubai-blue transition-colors"
+                className="text-gray-300 hover:text-cyan-400 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About

@@ -2,6 +2,8 @@ import React, { useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Car, ArrowLeft } from 'lucide-react'
 import { cars, categories } from '../data/cars'
+import { openWhatsApp } from '../utils'
+import LazyImage from '../components/ui/LazyImage'
 
 const Category = () => {
   const { slug } = useParams()
@@ -10,9 +12,7 @@ const Category = () => {
   const items = useMemo(() => cars.filter(c => c.category === slug), [slug])
 
   const handleWhatsApp = (carName) => {
-    const message = `Hello! I'm interested in renting the ${carName} from DriveFlow Dubai. Can you provide more details about pricing and availability?`
-    const whatsappUrl = `https://wa.me/971558029149?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, '_blank')
+    openWhatsApp(carName)
   }
 
   if (!category) {
@@ -49,18 +49,11 @@ const Category = () => {
             {items.map((car, i) => (
               <div key={i} className="card hover:shadow-cyan-500/20 transition-all duration-300 hover:scale-105">
                 <div className="h-48 rounded-lg mb-4 overflow-hidden">
-                  <img
-                    src={car.image}
+                  <LazyImage
+                    carName={car.name}
                     alt={car.name}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
+                    className="w-full h-full hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 flex items-center justify-center" style={{display: 'none'}}>
-                    <Car className="h-12 w-12 text-cyan-400" />
-                  </div>
                 </div>
                 <h3 className="text-lg font-semibold mb-3 text-center text-white">{car.name}</h3>
                 <div className="flex flex-col gap-2">

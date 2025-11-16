@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { Calendar, User, Phone, Mail, Car } from 'lucide-react'
+import { API_ENDPOINTS } from '../../constants'
 
 const BookingForm = () => {
-  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
     contact: '',
@@ -42,7 +41,7 @@ const BookingForm = () => {
       }
 
       // Send to backend API
-      const response = await fetch('http://localhost:3001/api/enquiry', {
+      const response = await fetch(API_ENDPOINTS.enquiry, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

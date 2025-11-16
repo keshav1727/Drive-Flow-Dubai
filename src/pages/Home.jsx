@@ -11,9 +11,10 @@ import {
   Award,
   Zap
 } from 'lucide-react'
-import BookingForm from '../components/BookingForm'
-import EnquiryDialog from '../components/EnquiryDialog'
+import BookingForm from '../components/forms/BookingForm'
+import EnquiryDialog from '../components/forms/EnquiryDialog'
 import { categories } from '../data/cars'
+import { openPhone } from '../utils'
 
 const Home = () => {
   const [enquiryDialog, setEnquiryDialog] = useState({ isOpen: false, carName: '' })
@@ -24,7 +25,7 @@ const Home = () => {
   }
 
   const handleCall = () => {
-    window.open('tel:+971558029149', '_self')
+    openPhone()
   }
 
 

@@ -15,24 +15,12 @@
     @apply bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-cyan-500/25;
   }
   
-  .btn-secondary {
-    @apply bg-gradient-to-r from-dubai-gold to-yellow-500 hover:from-yellow-400 hover:to-dubai-gold text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-500/25;
-  }
-  
   .card {
     @apply bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-xl shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300 p-6 hover:border-cyan-500/30;
   }
   
-  .card-light {
-    @apply bg-gray-800/60 backdrop-blur-sm border border-gray-700 rounded-xl shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 p-6 hover:border-cyan-500/30;
-  }
-  
   .input-field {
     @apply w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-300 placeholder-gray-400;
-  }
-  
-  .dark-bg {
-    @apply bg-gradient-to-br from-gray-900 via-black to-gray-900;
   }
   
   .premium-gradient {
