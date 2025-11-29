@@ -1,0 +1,29 @@
+services:
+  # Backend API Service
+  - type: web
+    name: driveflow-backend
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_APP_PASSWORD
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+
+  # Frontend Static Site
+  - type: web
+    name: driveflow-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false
+

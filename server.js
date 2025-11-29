@@ -7,19 +7,33 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
+const allowedOrigins = process.env.ALLOWED_ORIGINS 
+  ? process.env.ALLOWED_ORIGINS.split(',')
+  : ['http://localhost:3000', 'http://localhost:5173'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Allow all origins for now, you can restrict later
+    }
+  }
+}));
 app.use(express.json());
 
 // Telegram Bot Configuration
-const TELEGRAM_BOT_TOKEN = '8393769004:AAF-fvDJXA5aHlQXYFr-wQGXEnj2XNM91Y4';
-const TELEGRAM_CHAT_ID = '5069494694'; // Your Telegram chat ID
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8393769004:AAF-fvDJXA5aHlQXYFr-wQGXEnj2XNM91Y4';
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '5069494694'; // Your Telegram chat ID
 
 // Email Configuration
 const EMAIL_CONFIG = {
   service: 'gmail',
   auth: {
-    user: 'driveflowdubai@gmail.com',
-    pass: 'YOUR_APP_PASSWORD' // You need to generate an app password from Gmail
+    user: process.env.EMAIL_USER || 'driveflowdubai@gmail.com',
+    pass: process.env.EMAIL_APP_PASSWORD || 'YOUR_APP_PASSWORD' // You need to generate an app password from Gmail
   }
 };
 

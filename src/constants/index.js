@@ -6,7 +6,7 @@ export const CONTACT_INFO = {
 }
 
 export const API_ENDPOINTS = {
-  enquiry: 'http://localhost:3001/api/enquiry'
+  enquiry: (import.meta.env.VITE_API_URL || 'http://localhost:3001') + '/api/enquiry'
 }
 
 export const SOCIAL_LINKS = {
