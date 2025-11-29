@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { 
   Car, 
   Shield, 
@@ -118,14 +119,14 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((cat) => (
-              <a key={cat.slug} href={`/category/${cat.slug}`} className="card hover:shadow-cyan-500/20 transition-all duration-300 hover:scale-105">
+              <Link key={cat.slug} to={`/category/${cat.slug}`} className="card hover:shadow-cyan-500/20 transition-all duration-300 hover:scale-105">
                 <div className="h-40 rounded-lg mb-4 overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 flex items-center justify-center">
                   <span className="text-2xl font-bold text-white">{cat.name}</span>
                 </div>
                 <div className="flex justify-center">
                   <span className="text-cyan-400 text-sm">View {cat.name} cars →</span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

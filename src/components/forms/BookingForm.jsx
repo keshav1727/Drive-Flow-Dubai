@@ -207,10 +207,10 @@ const BookingForm = () => {
             required
           >
             <option value="">Select Vehicle Type</option>
-            <option value="luxury">Luxury Sedan (BMW 7 Series, Mercedes S-Class)</option>
-            <option value="suv">Premium SUV (Range Rover, BMW X5)</option>
-            <option value="economy">Economy (Toyota Camry, Nissan Altima)</option>
-            <option value="sports">Sports Car (Porsche, Ferrari)</option>
+            <option value="luxury">Sports</option>
+            <option value="suv">SUV</option>
+            <option value="economy">Premium</option>
+            <option value="sports">Budget</option>
           </select>
         </div>
 

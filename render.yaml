@@ -17,13 +17,15 @@ services:
       - key: ALLOWED_ORIGINS
         sync: false
 
-  # Frontend Static Site
+  # Frontend Web Service (using Node.js to handle SPA routing)
   - type: web
     name: driveflow-frontend
-    env: static
+    env: node
     buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
+    startCommand: node serve-static.js
     envVars:
       - key: VITE_API_URL
+        sync: false
+      - key: PORT
         sync: false
 
